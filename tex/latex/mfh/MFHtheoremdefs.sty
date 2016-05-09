@@ -1,0 +1,47 @@
+\NeedsTeXFormat{LaTeX2e}
+
+% update when new stuff added
+\ProvidesPackage{MFHtheoremdefs}[2016/05/09]
+
+%
+% Required packages
+%
+\usepackage{amsthm}
+
+%
+% Parse options
+%
+\newif\if@book\@bookfalse
+\DeclareOption{book}{
+	\@booktrue
+}
+
+\ProcessOptions\relax
+
+%
+% The package
+%
+
+\if@book
+   % For a book: Theorem numbering is for each chapter
+   \theoremstyle{plain}
+   \newtheorem{thm}{Theorem} [chapter] % reset theorem numbering for each chapter
+\else
+   % Else: Theorem numbering is for each section
+   \theoremstyle{plain}
+   \newtheorem{thm}{Theorem} [section] % reset theorem numbering for each section
+\fi
+
+\theoremstyle{plain}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{nte}{Note}
