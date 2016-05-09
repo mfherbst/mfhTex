@@ -1,0 +1,42 @@
+%
+% beamerthemeMFH is based on the MFH theme with some modification for 
+% towards the IWR color theme
+% 
+% Copyright (C) 2015 Michael Herbst
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or \textit{NESS FOR A PARTICULAR PURPOSE. See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program. If not, see <http://www.gnu.org/licenses/>.
+%
+
+\beamer@compresstrue
+
+\mode<presentation>
+
+\useinnertheme{rounded}
+\useoutertheme{miniframes}
+\usecolortheme{MFHiwr}				% tha adopted IWR color theme
+
+\setbeamercovered{transparent}          	% halbtransparente Overlays
+\setbeamertemplate{footline}[frame number]      % Seitenzahl einfügen
+\usepackage{lmodern}    			% Font
+
+\beamertemplatenavigationsymbolsempty		% remove navigation symbols
+
+%include iwr logo:
+\pgfdeclareimage[height=0.7cm]{IwrLogo}{img/HD/logoIWR}
+\pgfdeclareimage[height=0.7cm]{UniLogo}{img/HD/logoUni}
+\logo{\pgfuseimage{UniLogo}\hspace{0.2cm}\\[0.2cm]%
+	\pgfuseimage{IwrLogo}\hspace{0.2cm}\:}
+
+\mode<all>
+

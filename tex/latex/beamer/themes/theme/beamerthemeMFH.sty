@@ -1,0 +1,38 @@
+%
+% beamerthemeMFH is based on the Dresden theme with some minor modifications
+% 
+% Copyright (C) 2015 Michael Herbst
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or \textit{NESS FOR A PARTICULAR PURPOSE. See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program. If not, see <http://www.gnu.org/licenses/>.
+%
+
+\beamer@compresstrue
+\DeclareOptionBeamer{nocompress}{\beamer@compressfalse}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+
+\useinnertheme{rounded}
+\useoutertheme{miniframes}
+\usecolortheme{seahorse}
+
+\setbeamercovered{transparent}          	% halbtransparente Overlays
+\setbeamertemplate{footline}[frame number]      % Seitenzahl einfügen
+\usepackage{lmodern}    			% Font
+
+\beamertemplatenavigationsymbolsempty		% remove navigation symbols
+
+\mode<all>
+

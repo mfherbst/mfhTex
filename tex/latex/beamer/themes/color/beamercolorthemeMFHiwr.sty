@@ -1,0 +1,87 @@
+%
+% beamercolorthemeMFHiwr.sty
+% Provides a theme for LaTeX Beamer based on the IWR theme by Michael Engelhart
+% and the default seahorse theme
+% Minor modifications by Michael F. Herbst.
+%
+% Copyright (C) 2015 Michael F. Herbst
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program. If not, see <http://www.gnu.org/licenses/>.
+%
+
+\mode<presentation>
+
+% Define the main colors
+\definecolor{IwrGray}{rgb}{0.4,0.4,0.4}
+\definecolor{IwrDarkGray}{rgb}{0.2,0.2,0.2}
+\definecolor{IwrLightGray}{rgb}{0.6549,0.6667,0.6588}
+\definecolor{IwrVeryLightGray}{rgb}{0.8275,0.8333,0.8294}
+
+\definecolor{IwrRed}{rgb}{0.62745,0,0}
+\definecolor{IwrDarkRed}{rgb}{0.4706,0,0}
+\definecolor{IwrLightRed}{rgb}{0.8863,0.2706,0.2706}
+
+\definecolor{IwrGreen}{rgb}{0.0745,0.6314,0.1177}
+\definecolor{IwrDarkGreen}{rgb}{0.0,0.3961,0.0314}
+\definecolor{IwrLightGreen}{rgb}{0.3059,0.9020,0.3529}
+
+\definecolor{IwrBlue}{rgb}{0.0745,0.0745,0.6314}
+\definecolor{IwrDarkBlue}{rgb}{0,0,0.4157}
+\definecolor{IwrLightBlue}{rgb}{0.3882,0.3882,1}
+
+\definecolor{IwrOrange}{rgb}{0.9333,0.6235,0}
+\definecolor{IwrLightOrange}{rgb}{1.0,0.8,0.4}
+\definecolor{IwrBrown}{rgb}{0.5255,0.3451,0}
+
+\definecolor{IwrCyan}{rgb}{0.0314,0.6510,0.7843}
+\definecolor{IwrMagenta}{rgb}{0.8,0,0.6941}
+\definecolor{IwrYellow}{rgb}{1,0.8706,0}
+
+%principle colors:
+\setbeamercolor{structure}{fg=IwrRed}
+\setbeamercolor{alerted text}{fg=IwrRed}
+\setbeamercolor{example text}{fg=IwrGreen}
+\setbeamercolor{palette primary}{fg=IwrRed,bg=IwrVeryLightGray!65!white}
+
+% remaining colors (all depend on above):
+\setbeamercolor{palette secondary}{use=structure,fg=structure.bg,bg=structure.fg}
+\setbeamercolor{palette tertiary}{use={palette primary},fg=palette primary.fg!85!black,bg=palette primary.bg!60!white}
+\setbeamercolor{palette quaternary}{use={palette primary},fg=palette primary.fg,bg=palette primary.bg!50!white}
+
+\setbeamercolor{block body alerted}{use={palette primary},bg=palette primary.bg}
+\setbeamercolor{block body}{use={palette primary},bg=palette primary.bg}
+\setbeamercolor{block body example}{use={palette primary},bg=palette primary.bg}
+\setbeamercolor{block title alerted}{use={palette primary,alerted text},fg=alerted text.fg!85!normal text.fg,bg=palette primary.bg!97!black}
+\setbeamercolor{block title}{use={normal text,palette primary},fg=normal text.fg!80!black,bg=palette primary.bg!97!black}
+\setbeamercolor{block title example}{use={palette primary,example text},fg=example text.fg!85!normal text.fg,bg=palette primary.bg!97!black}
+
+\setbeamercolor{page number in head/foot}{use=structure,fg=structure.fg}
+\setbeamercolor*{titlelike}{parent=palette primary}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+%Note: these colors are not tested:
+\setbeamercolor{sidebar}{use=structure,bg=structure.fg!20!white}
+
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+
+\mode<all>
+
+%
+% End of file beamercolorthemeiwr.sty
+%
