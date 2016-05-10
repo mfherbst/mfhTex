@@ -1,0 +1,76 @@
+% 
+% Package for the utter setup mfh typically uses 
+%   - Loads default list of packages
+%   - Sets up commands
+%
+
+\NeedsTeXFormat{LaTeX2e}
+
+% update when new stuff added
+\ProvidesPackage{MFHdefault}[2016/05/09]
+
+%%%%%%%%%%%%%%%%%%
+%--  Packages  --%
+%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LateX Internals
+%
+\usepackage[utf8]{inputenc}
+\usepackage{ifthen}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font, alignment and layout
+%
+\usepackage{pdflscape}  % for rotating individual pages using
+			% environment landscape
+\usepackage{relsize}	%Adjust font size relatively using the commands \larger, \smaller, \relsize, .. ..
+\usepackage[stretch=10,shrink=10]{microtype}    % Better font formatting
+						% see more infos here: http://www.khirevich.com/latex/microtype/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables and figures
+%
+\usepackage{subfigure}  % Multiple a,b,c figures
+			%
+\usepackage{graphicx}   % \includegraphics
+			%
+\usepackage{lpic}	% text on top of picture
+			%
+\usepackage{tabularx}   % tabularx tables
+			%
+\usepackage{dcolumn}	% extra column type for aligning the . in tables
+			% see also the definition below
+			%
+\usepackage{multirow}	% multirow next to multicolumn
+			%
+\usepackage{booktabs}	% Better quality tables (like in published journals)
+			%
+\usepackage{rotating}   % Rotated floating figures and tables using
+			% environments sidewaystable and sidewaysfigure
+			%
+\usepackage{tikz}	% Great drawing in tex package
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Other Features
+%
+\usepackage{url}	% \url command to typeset urls
+			%
+\usepackage{varioref}	% A few extra refencing commands like \vref and \vpageref
+			% to refer cleverly to references on the same or other pages.
+			%
+%TODO use cleveref ???
+
+%%%%%%%%%%%%%%%%%%%%%
+%--  Definitions  --%
+%%%%%%%%%%%%%%%%%%%%%
+
+% A new table column type for floating point numbers
+% Such that the . of the floats is aligned
+%todo The argument has some meaning, I forgot
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+
+\endinput

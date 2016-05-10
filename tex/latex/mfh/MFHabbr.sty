@@ -1,0 +1,55 @@
+% 
+% Package for defining and handling default abbreviations.
+%    - defines some default abbreviations.
+%
+% Options:
+%   nomencl -> uses the \nomenclature macro of the nomencl 
+%              package to put the abbreviations into the 
+%              nomenclature.
+%
+
+\NeedsTeXFormat{LaTeX2e}
+
+% update when new stuff added
+\ProvidesPackage{MFHabbr}[2016/05/09]
+
+%
+% Required packages
+%
+\usepackage{xspace}     %Command to provide a conditional space at the end of \newcommand-s
+
+%
+% Parse options
+%
+\newif\if@nomencl\@nomenclfalse
+\DeclareOption{nomencl}{
+	\@nomencltrue
+}
+
+\ProcessOptions\relax
+
+%
+% The package
+%
+
+% Command for long word abbreviation.
+\newcommand{\abbr}[2]{#1.\hspace{-0.8ex}\textsuperscript{\textit{#2}}\hspace{-0.3ex}}
+
+% Command to define an abbreviation command and send it to nomenclature, if enabled:
+\newcommand{\defineabbr}[3]{%
+	\@namedef{#1}{#2}%
+	\if@nomencl%
+		\nomenclature{#2}{#3}%
+	\fi%
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+%-- Abbreviations --%
+%%%%%%%%%%%%%%%%%%%%%
+
+\defineabbr{ie}{\mbox{i.~e.}\xspace}{\textit{id est}}
+\defineabbr{fig}{\abbr{fig}{e}\xspace}{figure}
+\defineabbr{eqn}{\abbr{eq}{n}\xspace}{equation}
+
+\endinput
+

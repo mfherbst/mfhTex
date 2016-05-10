@@ -1,0 +1,236 @@
+% 
+% Package for the utter setup mfh typically uses 
+% for scientific documents
+%   - Loads default list of packages
+%   - Sets up commands
+%
+% Options:
+%   chem -> also load packages to draw chemical figures
+%           and define some extra macros for chemistry
+
+\NeedsTeXFormat{LaTeX2e}
+
+% update when new stuff added
+\ProvidesPackage{MFHscience}[2016/05/09]
+
+
+%%%%%%%%%%%%%%%%%
+%--  Options  --%
+%%%%%%%%%%%%%%%%%
+\newif\if@chem\@chemfalse
+\DeclareOption{chem}{
+	\@chemtrue
+}
+
+\ProcessOptions\relax
+
+%%%%%%%%%%%%%%%%%%
+%--  Packages  --%
+%%%%%%%%%%%%%%%%%%
+\usepackage{MFHdefault}		% Loads default
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Equations
+%
+\usepackage{amsmath}		% ams maths
+				%
+\usepackage{amssymb}		% Symbols
+				%
+\usepackage[tight]{units}	% Nice units via \unit[Number]{Unit}, \unit{Unit^-1}
+				%
+\usepackage{bm}			% Allow bold symbols in math via the \bm command
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Other Features
+%
+\usepackage[numbers,comma,sort&compress]{natbib}    % better \cite
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Drawing chemical sketches
+\if@chem
+	%Chemie
+	\usepackage[version=3]{mhchem}		%mhchem for the command ``\ce''
+	\usepackage{chemfig}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%
+%--  Definitions  --%
+%%%%%%%%%%%%%%%%%%%%%
+
+% Note: Spaces in math mode:
+% see https://tex.stackexchange.com/questions/38982/what-is-the-difference-between-mathbin-vs-mathrel
+% \mathbin  Binary operator like +
+% \mathop   Large operator like \sum
+% \mathopen  Opening like (
+% \mathclose  Closing like )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General typesetting
+%
+\newcommand*{\braceunder}[2]{% put a brace under #1 containing #2, which points to #1
+	\ensuremath%
+	\underset{\overbrace{\text{\smaller[2] #2\ }}}{#1}%
+}		%put a brace under #1 containing #2, which points to #1
+%
+\newcommand*{\braceover}[2]{% put a brace over #1 containing #2, which points to #1
+	\ensuremath%
+	\overset{\underbrace{\text{\smaller[2] #2\ }}}{#1}%
+}
+%
+% For scientiffic notation:
+\newcommand*{\E}[1]{\cdot 10^{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Extra operators and functions:
+%
+% Take the argmax
+\DeclareMathOperator*{\argmax}{arg\,max}
+%
+% Take the argmin
+\DeclareMathOperator*{\argmin}{arg\,min}
+%
+% The sign function
+\DeclareMathOperator{\sgn}{sgn}
+%
+% Take the trace
+\DeclareMathOperator{\tr}{tr}
+%
+% Take the diagonal
+\DeclareMathOperator*{\diag}{diag}
+%
+% The real part
+\DeclareMathOperator{\Real}{Re}
+%
+% The imaginary part
+\DeclareMathOperator{\Imag}{Im}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Analysis
+%
+% TODO 
+% Look at physics package and use it or steal code
+% http://ctan.sharelatex.com/tex-archive/macros/latex/contrib/physics/physics.pdf
+%
+% Differential operator:
+\newcommand{\D}{\mathop{}\!\mathrm{d}}
+%
+% Nicer real part
+\renewcommand{\Re}{\Real}
+%
+% Nicer imag. part
+\renewcommand{\Im}{\Imag}
+%
+% The imaginary unit:
+\newcommand{\I}{\ensuremath \imath}
+%
+% Complex conjugation:
+\newcommand*{\cc}[1]{\ensuremath{#1^\ast}}
+%
+% Landau Big O notation:
+\newcommand{\bigO}{\ensuremath{\mathcal{O}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Linear algebra
+%
+% For absolute values of numbers:
+\newcommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}		%\ensuremath: switch to math mode if not already
+%
+% For norms of vectors:
+\newcommand*{\norm}[1]{\ensuremath{\left\lVert#1\right\rVert}}
+%
+% Typesetting a vector:
+\renewcommand*{\vec}[1]{\ensuremath{\underline{\boldsymbol{#1}}}}	%vector
+%
+% Typesetting a unit vector:
+\newcommand*{\uvec}[1]{\ensuremath{\hat{\underline{\boldsymbol{#1}}}}}	%unit vector
+%
+% Typesetting a matrix:
+\newcommand*{\mat}[1]{\ensuremath{\mathbf{#1}}}
+%
+% Defining matrix or vector components (big and small version):
+\newcommand*{\mm}[1]{\ensuremath \begin{pmatrix} #1 \end{pmatrix}}
+\newcommand*{\smallmm}[1]{\ensuremath \left( \begin{smallmatrix} #1 \end{smallmatrix} \right)}
+%
+% Take the normal transpose operation:
+% Note: Mathematically speaking this is the same thing as \cc
+\newcommand*{\tp}[1]{\ensuremath{#1^{\dagger}}}
+%
+% Explicitly real transpose without \cc
+\newcommand*{\rtp}[1]{\ensuremath{#1^\text{T}}}
+%
+% Take the inverse of the transpose:
+\newcommand*{\itp}[1]{\ensuremath{#1^{-\dagger}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sets and set theory
+%
+% Typesetting a set:
+\newcommand*{\set}[1]{\ensuremath{\mathbb{#1}}}
+%
+% Typesetting a family of sets, like a power set:
+\newcommand*{\fos}[1]{\ensuremath{\mathcal{#1}}}
+
+% Default sets of numbers:
+\newcommand{\R}{\set{R}}
+\newcommand{\N}{\set{N}}
+\newcommand{\C}{\set{C}}
+%
+% Disjoint unions, once as binary operator (\cupdot)
+% and once as big symbol (\bigcupdot)
+\newcommand{\cupdot}{\ensuremath \mathbin{\dot{\cup}}}
+\newcommand{\bigcupdot}{\ensuremath \mathop{\dot{\bigcup}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General physics
+%
+% Special string denoting that something is constant:
+\DeclareMathOperator{\const}{const.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quantum Mechanics
+%
+% Denoting operators in QM
+\newcommand*{\Op}[1]{\ensuremath{\hat{\mathcal{#1}}}}
+\newcommand*{\op}[1]{\ensuremath{\hat{\mathrm{#1}}}}
+%
+% TODO 
+% Look at physics package and use it or steal code
+% http://ctan.sharelatex.com/tex-archive/macros/latex/contrib/physics/physics.pdf
+%
+% Standalone bra and kets:
+\newcommand*{\bra}[1]{\left\langle#1\right|}
+\newcommand*{\ket}[1]{\left|#1\right\rangle}
+%
+% Bra and kets with something in the middle. 
+% They do have to come as a pair!
+\newcommand*{\mbra}[1]{\left\langle#1\middle|}
+\newcommand*{\mket}[1]{\middle|#1\right\rangle}
+%
+% Ketbra and braket together:
+\newcommand*{\braket}[2]{\left\langle#1\middle|#2\right\rangle}
+\newcommand*{\ketbra}[2]{\left| #1 \middle\rangle \middle\langle #2 \right|}
+%
+% Commutator and anticommutator:
+\newcommand*{\comm}[2]{\ensuremath{ \left[ {#1}, {#2} \right] }}
+\newcommand*{\acomm}[2]{\ensuremath{ \left\{ {#1}, {#2} \right\} }}
+%
+% Creation and anihilation operators:
+\newcommand*{\creop}[1]{\ensuremath{\op{a}_{#1}^{\dagger}}}
+\newcommand*{\anop}[1]{\ensuremath{\op{a}_{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General chemistry
+%
+\if@chem
+%
+% Typeset a lone pair around an atom:
+\newcommand*{\lp}[1]{\ensuremath{\ddot{\text{#1}}}}		%lone pairs
+%
+% Typeset a transition state symbol:
+\newcommand{\TS}{\ensuremath{\text{TS}^\ddag \xspace}}
+%
+\fi
+
+\endinput
