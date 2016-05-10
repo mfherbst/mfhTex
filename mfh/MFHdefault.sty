@@ -28,6 +28,7 @@
 \usepackage{relsize}	%Adjust font size relatively using the commands \larger, \smaller, \relsize, .. ..
 \usepackage[stretch=10,shrink=10]{microtype}    % Better font formatting
 						% see more infos here: http://www.khirevich.com/latex/microtype/
+\usepackage{parskip}    % Change space between paragraphs properly
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tables and figures
@@ -72,5 +73,10 @@
 %todo The argument has some meaning, I forgot
 \newcolumntype{d}[1]{D{.}{.}{#1}}
 
+% Have some space between paragraphs.
+\setlength{\parskip}{0.5em}
+
+% Use the default indent of 15pt
+\setlength{\parindent}{15pt} 
 
 \endinput
