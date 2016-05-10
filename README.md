@@ -10,7 +10,7 @@ Checkout the repository directly into your local tex package tree.
 This is usually the directory ``~/texmf/tex/latex/``, i.e. you run
 ```
 cd ~/texmf/tex/latex/
-git clone 
+git clone "https://github.com/mfherbst/mfhTex.git" .
 ```
 
 ### Tell TeX where to look for
