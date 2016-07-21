@@ -98,12 +98,6 @@
 %
 % Take the diagonal
 \DeclareMathOperator*{\diag}{diag}
-%
-% The real part
-\DeclareMathOperator{\Real}{Re}
-%
-% The imaginary part
-\DeclareMathOperator{\Imag}{Im}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Analysis
@@ -115,11 +109,11 @@
 % Differential operator:
 \newcommand{\D}{\mathop{}\!\mathrm{d}}
 %
-% Nicer real part
-\renewcommand{\Re}{\Real}
+% The real part
+\renewcommand{\Re}{\operatorname{Re}}
 %
-% Nicer imag. part
-\renewcommand{\Im}{\Imag}
+% The imaginary part
+\renewcommand{\Im}{\operatorname{Im}}
 %
 % The imaginary unit:
 \newcommand{\I}{\ensuremath \imath}
