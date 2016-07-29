@@ -3,7 +3,10 @@
 THISDIR=$(dirname ${BASH_SOURCE[0]})
 
 # for tex:
-export TEXINPUTS=".:$TEXINPUTS:$THISDIR:"
+export TEXINPUTS=".:$TEXINPUTS:"
+for dir in baposter mfh; do
+	export TEXINPUTS="${TEXINPUTS}$THISDIR/$dir:"
+done
 
 #For Bibtex:
 export BSTINPUTS=".:$BSTINPUTS:$THISDIR:"
