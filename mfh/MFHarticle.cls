@@ -9,13 +9,17 @@
 %%%%%%%%%%%%%%%%%
 %--  Options  --%
 %%%%%%%%%%%%%%%%%
-
-% Article default options
-\DeclareOption{10pt}{
-	\PassOptionsToClass{\CurrentOption}{article}
+\newif\if@widepage\@widepagefalse
+\DeclareOption{widepage}{
+	% Make the page geometry larger
+	\@widepagetrue
 }
-\DeclareOption{12pt}{
+
+\newif\if@twocolumn\@twocolumnfalse
+\DeclareOption{twocolumn}{
+	% Setup a twocolumn layout
 	\PassOptionsToClass{\CurrentOption}{article}
+	\@twocolumntrue
 }
 
 % Fallback
@@ -39,8 +43,25 @@
 % Package for \numberwithin
 \usepackage{amsmath}
 
+% Column separation for twocolumn
+\if@twocolumn
+	\setlength{\columnsep}{2em}
+\fi
+
 % Default geometry:
-\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
+\if@widepage
+	\if@twocolumn
+		\usepackage[left=1.3cm,right=1.3cm]{geometry}
+	\else
+		\usepackage{geometry}
+	\fi
+\else
+	\if@twocolumn
+		\usepackage[left=2cm,right=2cm]{geometry}
+	\else
+		\usepackage[left=3.8cm,right=3.8cm]{geometry}
+	\fi
+\fi
 
 % Package which replaces itemize, description and enumerate environments
 % by more flexible alternatives
