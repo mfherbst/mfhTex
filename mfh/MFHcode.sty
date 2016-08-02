@@ -1,0 +1,149 @@
+%
+% Package for defining and handling default code listing setup.
+%    - defines code styles: c++, bash, awk, ...
+%    - defines some code commands like \load, \loadout ...
+%
+% use as
+%    \lstinputlisting[language=...,style=...]{  file  }
+% or
+%    \code{some inline source}
+% or
+%    \load{some_file}   code from file with a title caption
+% or
+%    \loadnt{some_file}   code from file without a title caption
+%
+
+\NeedsTeXFormat{LaTeX2e}
+
+% update when new stuff added
+\ProvidesPackage{MFHabbr}[2016/05/09]
+
+%
+% Required packages
+%
+\usepackage{MFHcolours}		% The colours we need here
+\usepackage{listings}
+
+%
+% Parse options
+%
+
+\ProcessOptions\relax
+
+%
+% The package
+%
+
+%%%%%%%%%%%%%%%%
+%--  styles  --%
+%%%%%%%%%%%%%%%%
+\lstdefinestyle{default}{ %
+	backgroundcolor=\color{grey9},  % choose the background color. You must add \usepackage{color}
+	basicstyle=\small\ttfamily,     % the size of the fonts that are used for the code
+	%fontadjust=true,
+	breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                % sets automatic line breaking
+	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow}},  % mark line beaks
+	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\swarrow}},           % also mark line breaks
+	captionpos=b,                   % sets the caption-position to bottom
+	commentstyle=\color{blue},      % comment style
+	%deletekeywords={\ldots},	% if you want to delete keywords from the given language
+	%escapeinside={\%*}{*)},        % if you want to add LaTeX within your code
+	%extendedchar=true,             % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%frame=single,                  % adds a frame around the code
+	keywordstyle=\color{dkgreen},   % keyword style
+	%morekeywords={*,\ldots},       % if you want to add more keywords to the set
+	numbers=left,                   % where to put the line-numbers
+	numbersep=5pt,                  % how far the line-numbers are from the code
+	numberstyle=\tiny\color{grey4}, % the style that is used for the line-numbers
+	rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,               % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=true,         % underline spaces within strings only
+	showtabs=false,                 % show tabs within strings adding particular underscores
+	stepnumber=1,                   % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mauve},      % string literal style
+	tabsize=2,                      % sets default tabsize to 2 spaces
+	%title=\lstname,                % show the filename of files included with \lstinputlisting; also try caption instead of title
+	emphstyle=\underbar,		% if extra words are emphasised using emph={word1,word2}, use an underbar to do so.
+	%
+	% Umlaute in listings:
+	literate=%
+		{Ö}{{\"O}}1%
+		{Ä}{{\"A}}1%
+		{Ü}{{\"U}}1%
+		{ß}{{\ss}}1%
+		{ü}{{\"u}}1%
+		{ä}{{\"a}}1%
+		{ö}{{\"o}}1%
+		{~}{{\textasciitilde}}1%
+		{°}{\textdegree{}}1%
+		{Å}{\AA}1%
+}
+
+\lstdefinestyle{c++}{ %
+	style=default,		% copy from default style
+	%language={[11]c++},    % c++11
+	language={c++},		% c++98
+}
+
+\lstdefinestyle{bash}{%
+	style=default,		% copy from default style
+	language={bash}, 	% standard bash
+}
+
+\lstdefinestyle{awk}{%
+	style=default,		% copy from default style
+	language={awk}, 	% standard awk
+}
+
+\lstdefinestyle{plain}{%
+	style=default,		% copy from default style
+	language={},		% no language
+}
+
+\lstdefinestyle{output}{%		style for created output
+	style=plain,
+	backgroundcolor=\color{white},  %
+	frame=single,                   %
+	showspaces=true,                %
+	showtabs=true,			%
+	escapeinside={},		%
+}
+
+% per default use the c++ style:
+\lstset{ %
+	style=c++
+}
+
+%%%%%%%%%%%%%%
+%--  code  --%
+%%%%%%%%%%%%%%
+% command to insert code inline
+\newcommand{\code}{\lstinline[basicstyle=\ttfamily,postbreak={},prebreak={}]}
+% command to load code from a file
+\newcommand{\load}{\lstinputlisting[title=\lstname]}
+% command to load from file without a title
+\newcommand{\loadnt}{\lstinputlisting}
+
+%%%%%%%%%%%%%%%%
+%--  output  --%
+%%%%%%%%%%%%%%%%
+% command to insert output inline
+\newcommand{\coutp}{\lstinline[basicstyle=\ttfamily,postbreak={},prebreak={},showspaces=true,showtabs=true]}
+% command to load output from a file
+\newcommand{\loadoutput}{\lstinputlisting[title=\lstname,style=output]}
+% command to load output from file without a title
+\newcommand{\loadoutputnt}{\lstinputlisting[style=output]}
+
+%%%%%%%%%%%%%%%
+%--  plain  --%
+%%%%%%%%%%%%%%%
+% command to insert output inline
+\newcommand{\cplain}{\coutp}
+% command to load plainly from a file
+\newcommand{\loadplain}{\lstinputlisting[title=\lstname,style=plain]}
+% command to load plainly from file without a title
+\newcommand{\loadplainnt}{\lstinputlisting[style=plain]}
+
+\endinput
+
