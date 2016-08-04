@@ -41,13 +41,13 @@
 	backgroundcolor=\color{grey9},  % choose the background color. You must add \usepackage{color}
 	basicstyle=\small\ttfamily,     % the size of the fonts that are used for the code
 	%fontadjust=true,
-	breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
 	breaklines=true,                % sets automatic line breaking
 	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow}},  % mark line beaks
 	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\swarrow}},           % also mark line breaks
 	captionpos=b,                   % sets the caption-position to bottom
 	commentstyle=\color{blue},      % comment style
-	%deletekeywords={\ldots},	% if you want to delete keywords from the given language
+	%deletekeywords={\ldots},       % if you want to delete keywords from the given language
 	%escapeinside={\%*}{*)},        % if you want to add LaTeX within your code
 	%extendedchar=true,             % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
 	%frame=single,                  % adds a frame around the code
@@ -58,13 +58,14 @@
 	numberstyle=\tiny\color{grey4}, % the style that is used for the line-numbers
 	rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
 	showspaces=false,               % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-	showstringspaces=true,         % underline spaces within strings only
+	showstringspaces=true,          % underline spaces within strings only
 	showtabs=false,                 % show tabs within strings adding particular underscores
 	stepnumber=1,                   % the step between two line-numbers. If it's 1, each line will be numbered
 	stringstyle=\color{mauve},      % string literal style
 	tabsize=2,                      % sets default tabsize to 2 spaces
 	%title=\lstname,                % show the filename of files included with \lstinputlisting; also try caption instead of title
-	emphstyle=\underbar,		% if extra words are emphasised using emph={word1,word2}, use an underbar to do so.
+	emphstyle=\underbar,            % if extra words are emphasised using emph={word1,word2}, use an underbar to do so.
+	%inputencoding=utf-8             % use utf-8
 	%
 	% Umlaute in listings:
 	literate=%
@@ -91,12 +92,23 @@
 	language={bash}, 	% standard bash
 }
 
+\lstdefinestyle{terminal}{%    style for terminal lines or windows
+	style=bash,                 % copy from bash
+	backgroundcolor=\color{grey9},  % use a slightly brighter grey
+	frame=single,               % have a border frame
+	framerule=1pt,              % width of the rule
+	escapeinside={},            % no latex inside
+	commentstyle=\color{black}, % black comments
+	stringstyle=\color{black},  % black strings
+	keywordstyle=\color{black}, % black keywords
+}
+
 \lstdefinestyle{awk}{%
 	style=default,		% copy from default style
 	language={awk}, 	% standard awk
 }
 
-\lstdefinestyle{plain}{%
+\lstdefinestyle{plain}{%  plain text files
 	style=default,		% copy from default style
 	language={},		% no language
 }
