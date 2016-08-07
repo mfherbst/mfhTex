@@ -13,6 +13,7 @@
 %
 % Options:
 %  book -> uses setup for a book
+%  
 %
 
 \NeedsTeXFormat{LaTeX2e}
@@ -39,6 +40,41 @@
 % The package
 %
 
+% By default amsthm uses a \topsep separation between its environments
+% This sometimes a little small in my opinion. Especially if one (like I do)
+% increases \parskip. This is why I add an extra \parskip spacing before
+% the theorem enviroments.
+\newtheoremstyle{plain}
+	{\parskip\topsep} %space above
+	{\topsep} %space below
+	{\itshape} % body font
+	{} % indent amount
+	{\bfseries} % body head font
+	{.} % punctuation after theorem head
+	{.5em} % space after theory head
+	{} % theorem head spec (empty is normal)
+
+\newtheoremstyle{definition}
+	{\parskip\topsep} %space above
+	{\topsep} %space below
+	{} % body font
+	{} % indent amount
+	{\bfseries} % body head font
+	{.} % punctuation after theorem head
+	{.5em} % space after theory head
+	{} % theorem head spec (empty is normal)
+
+\newtheoremstyle{remark}
+	{\parskip} % space above
+	{} % space below
+	{\normalfont} % body font
+	{} % indent amount
+	{\itshape} % body head font
+	{.} % punctuation after theorem head
+	{.5em} % space after theory head
+	{} % theorem head spec (empty is normal)
+
+% Define the theorems
 \if@book
    % For a book: Theorem numbering is for each chapter
    \theoremstyle{plain}
@@ -49,7 +85,6 @@
    \newtheorem{thm}{Theorem} [section] % reset theorem numbering for each section
 \fi
 
-\theoremstyle{plain}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
@@ -57,10 +92,10 @@
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{exmp}[thm]{Example}
-\newtheorem{rem}[thm]{Remark}
 \newtheorem{ex}[thm]{Exercise}
 
 \theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
 \newtheorem*{nte}{Note}
 
 \endinput
