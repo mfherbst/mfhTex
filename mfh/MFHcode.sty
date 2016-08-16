@@ -16,13 +16,18 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % update when new stuff added
-\ProvidesPackage{MFHabbr}[2016/05/09]
+\ProvidesPackage{MFHcode}[2016/05/09]
 
 %
 % Required packages
 %
 \usepackage{MFHcolours}		% The colours we need here
 \usepackage{listings}
+
+% Make sure that ' and ` appear as they should in verbatim environments.
+% listings uses these internally for \lstinline and lstlisting
+% So we need this to get the verbatim 1:1 translation for ' and ` as well.
+\usepackage{upquote}
 
 %
 % Parse options
