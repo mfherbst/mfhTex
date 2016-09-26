@@ -12,6 +12,10 @@
 % or
 %    \loadnt{some_file}   code from file without a title caption
 %
+% Options
+%  poster  ->  uses setup for a poster
+%
+
 
 \NeedsTeXFormat{LaTeX2e}
 
@@ -33,6 +37,11 @@
 % Parse options
 %
 
+\newif\if@poster\@posterfalse
+\DeclareOption{poster}{
+	\@postertrue
+}
+
 \ProcessOptions\relax
 
 %
@@ -42,14 +51,15 @@
 %%%%%%%%%%%%%%%%
 %--  styles  --%
 %%%%%%%%%%%%%%%%
-\lstdefinestyle{default}{ %
+% The base style which works with all documentclasses
+\lstdefinestyle{base}{
 	backgroundcolor=\color{grey9},  % choose the background color. You must add \usepackage{color}
 	basicstyle=\small\ttfamily,     % the size of the fonts that are used for the code
 	%fontadjust=true,
 	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
 	breaklines=true,                % sets automatic line breaking
-	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow}},  % mark line beaks
-	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\swarrow}},           % also mark line breaks
+	%postbreak={\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow}}},  % mark line beaks
+	%prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\swarrow}},           % also mark line breaks
 	captionpos=b,                   % sets the caption-position to bottom
 	commentstyle=\color{blue},      % comment style
 	%deletekeywords={\ldots},       % if you want to delete keywords from the given language
@@ -85,6 +95,19 @@
 		{°}{\textdegree{}}1%
 		{Å}{\AA}1%
 }
+
+\if@poster
+	\lstdefinestyle{default}{ %
+		style=base,
+		basicstyle={\small\smaller\ttfamily},
+	}
+\else
+	\lstdefinestyle{default}{ %
+		style=base,
+		postbreak={\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow}}},  % mark line beaks
+		prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\swarrow}},           % also mark line breaks
+	}
+\fi
 
 \lstdefinestyle{c++}{ %
 	style=default,		% copy from default style
