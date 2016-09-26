@@ -2,6 +2,12 @@
 % Class for a basic poster, based largely on baposter,
 % just modifying some of its defaults.
 %
+% Options:
+%  fontscale  Change the overall font size.
+%             Smaller values mean larger fonts.
+%             Ideal value is between 0.29 and 0.35
+%             Recommended value is 0.32
+%
 \NeedsTeXFormat{LaTeX2e}
 
 % update when new stuff added
@@ -15,6 +21,8 @@
 \RequirePackage{xkeyval}
 
 \DeclareOptionX{fontscale}{
+	% Font scale: Smaller values mean larger fonts
+	% Try to use value around 0.32
 	\PassOptionsToClass{\CurrentOption}{baposter}
 }
 
@@ -37,11 +45,11 @@
 % by more flexible alternatives
 \usepackage{enumitem}
 
-% Make references as links:
-\usepackage{hyperref}
-
 % use package xcolor
 \usepackage{xcolor}
+
+% Change space between paragraphs properly
+\usepackage{parskip}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %--  Changes to baposter defaults  --%
@@ -78,8 +86,13 @@
 	boxpadding=0.7em,
 	textborder=roundedsmall,
 	textfont={%
-		\setlength{\parindent}{15pt}%
-		\setlength{\hangindent}{0.0em}%
+		% Reduce default paragraph indent to nothing
+		\setlength{\parindent}{0.0cm}%
+		%
+		% Reduce the space between paragraphs
+		\setlength{\parskip}{0.15em}%
+		%
+		% Set space between text and margin notes
 		\setlength{\marginparsep}{0.5em}%
 	},
 	%
@@ -137,9 +150,9 @@
 
 % save space in lists: Use this after opening of the list:
 \newcommand{\compresslist}{%
-	\setlength{\itemsep}{2.6pt}%
-	\setlength{\parskip}{0pt}%
+	\setlength{\itemsep}{0.05em}%
 	\setlength{\parsep}{0.2ex}%
+	\setlength{\parskip}{0.05em}%
 }
 
 % command to use for words that should catch the eye
