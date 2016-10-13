@@ -7,3 +7,7 @@
 .*.swp
 .*.swo
 *.bak
+
+# ignore downloaded 3rd party files
+/iwr/logoIWR.pdf
+/iwr/logoUniHD.pdf
