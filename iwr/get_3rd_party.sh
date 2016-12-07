@@ -4,6 +4,7 @@
 # Base url to get the stuff from
 BASE="https://www.iwr.uni-heidelberg.de/fileadmin/IWR/Templates"
 
+
 get() {
 	if which wget 2> /dev/null 1>&2; then
 		wget  "$1" -O "$2"
@@ -25,4 +26,11 @@ if [ -L "logoUniHD.pdf" ]; then
 	get "$BASE/logo_uni-hd_4c.eps" "/tmp/logoUniHD.eps"
 	epstopdf "/tmp/logoUniHD.eps"
 	mv "/tmp/logoUniHD.pdf"  .
+fi
+
+if [ -L "logoHGS.pdf" ]; then
+	rm logoHGS.pdf
+	get "$BASE/logo_hgs-mathcomp.eps" "/tmp/logoHGS.eps"
+	epstopdf "/tmp/logoHGS.eps"
+	mv "/tmp/logoHGS.pdf" .
 fi
