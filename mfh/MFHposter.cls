@@ -46,7 +46,7 @@
 \usepackage{enumitem}
 
 % use package xcolor
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 
 % Change space between paragraphs properly
 \usepackage{parskip}
