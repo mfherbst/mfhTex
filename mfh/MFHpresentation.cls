@@ -13,6 +13,10 @@
 	\PassOptionsToClass{\CurrentOption}{beamer}
 }
 
+\DeclareOption{xcolor}{
+	\PassOptionsToClass{\CurrentOption}{beamer}
+}
+
 \newif\if@logoall\@logoallfalse
 \DeclareOption{logoall}{
 	% Show the logo on all slides
@@ -28,7 +32,7 @@
 \ProcessOptions\relax
 
 % Load base class:
-\LoadClass[mathserif]{beamer}
+\LoadClass[mathserif,xcolor={dvipsnames}]{beamer}
 
 %%%%%%%%%%%%%%%%%%
 %--  Packages  --%
