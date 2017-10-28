@@ -18,6 +18,9 @@
 \DeclareOption{oneside}{
 	\PassOptionsToClass{\CurrentOption}{book}
 }
+\DeclareOption{twoside}{
+	\PassOptionsToClass{\CurrentOption}{book}
+}
 \DeclareOption{10pt}{
 	\PassOptionsToClass{\CurrentOption}{book}
 }
