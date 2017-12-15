@@ -22,6 +22,9 @@
 	\@twocolumntrue
 }
 
+\DeclareOption{10pt}{\PassOptionsToClass{\CurrentOption}{article}}
+\DeclareOption{12pt}{\PassOptionsToClass{\CurrentOption}{article}}
+
 % Fallback
 \DeclareOption*{
 	\ClassWarning{MFHarticle}{Unknown option '\CurrentOption'}
