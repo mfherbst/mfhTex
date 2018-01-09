@@ -20,6 +20,9 @@
 % To parse this we need xkeyval and baposter
 \RequirePackage{xkeyval}
 
+% We need xcolor exactly like this
+\RequirePackage[dvipsnames,cmyk]{xcolor}
+
 \DeclareOptionX{fontscale}{
 	% Font scale: Smaller values mean larger fonts
 	% Try to use value around 0.32
@@ -44,9 +47,6 @@
 % Package which replaces itemize, description and enumerate environments
 % by more flexible alternatives
 \usepackage{enumitem}
-
-% use package xcolor
-\usepackage[dvipsnames]{xcolor}
 
 % Change space between paragraphs properly
 \usepackage{parskip}
