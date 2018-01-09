@@ -1,0 +1,129 @@
+\documentclass[fontscale=0.34]{MFHposter}
+
+\usepackage{MFHcolours}
+\usepackage{MFHscience}
+\usepackage{MFHabbr}
+\usepackage[poster]{MFHcode}
+\usetikzlibrary{positioning,arrows,backgrounds,fit}
+
+\begin{document}
+% Set the poster theme to use with mfhposter
+\usepostertheme{iwrblue}
+%
+\begin{mfhposter}%
+	{\vspace{1cm}\makeimagetitle%
+		{ColorGradient}%  Title background image
+		{% Poster title
+			\color{white}%
+			My great dummy title
+		}%
+		{% Authors
+			\color{grey95}%
+			John Doe$^1$*, Frederic Urby$^2$
+		}%
+		{% Institutes
+			\color{grey95}%
+			$^1$The centre of advanced studies\\%
+			$^2$Department of department studies%
+		}%
+		{% Contact information field
+			\color{grey95}%
+			EMail: mail@example.com --- Website: \url{http://example.com}%
+		}%
+	}%
+	{}{}% No extra subtitle or university logo (already included above)
+	{ % Extra options passed straight to baposter
+		% Use a grid to help with alignment
+		grid=false,
+	}
+
+\begin{posterbox}[name=intro,row=0]{Introduction}
+\begin{itemize}
+	\item Some bullet point
+	\item Another bullet point
+\end{itemize}
+
+\vspace{0.4em}
+More stuff:
+\begin{itemize}
+	\item This is \alert{really} important!
+\end{itemize}
+
+\vspace{5cm}
+\end{posterbox}
+
+
+\begin{posterbox}[name=another,below=intro]{Another box}
+\vspace{5cm}
+\begin{center}
+\begin{tikzpicture}
+	\draw (1,1) -- (0,0) -- (1,0) -- (0,1) -- (1,1);
+\end{tikzpicture}
+\end{center}
+\vspace{5cm}
+\end{posterbox}
+
+\begin{posterbox}[below=another,above=bottom]{Example code}
+\vspace{3cm}
+\begin{flushright}
+\begin{minipage}{0.97\textwidth}
+	\begin{lstlisting}[
+		% Make contrast larger:
+		backgroundcolor={\color{grey95}},
+		commentstyle={\color{blue!90!black}},
+]
+#include <iostream>
+
+int main() {
+  std::cout << "Hello world!";
+  return 0;
+}
+\end{lstlisting}
+\end{minipage}
+\end{flushright}
+\end{posterbox}
+
+%
+% Column 1
+%
+\begin{posterbox}[name=application,column=1,row=0]{Application}
+	\vspace{5cm}
+	\begin{itemize}
+		\item Stuff 1
+		\item Stuff 2
+	\end{itemize}
+	\vspace{5cm}
+\end{posterbox}
+
+\begin{posterbox}[name=yet,column=1,below=application]{Yet another}
+	\vspace{2cm}
+	\begin{itemize}
+		\item Yet another box
+	\end{itemize}
+	\vspace{2cm}
+\end{posterbox}
+
+\begin{posterbox}[name=references,column=1,above=bottom]{References}
+\bibliographystyle{abbrv_unsrt_nat}
+\vspace{-1.0em}
+\smaller[2]
+
+\begin{thebibliography}{2}
+	\bibitem{reference}
+	M.~Herbst, \url{https://github.com/mfherbst/mfhTex}, \textit{The mfhTex repository}.
+
+	\bibitem{more}
+	M.~Ore and R.~Eferences, \textit{The Journal}, \textbf{1} (2017), 12.
+\end{thebibliography}
+\end{posterbox}
+
+\begin{posterbox}[name=outlook,column=1,below=yet,above=references]{Outlook}
+\begin{itemize}
+	\compresslist
+	\item Stuff
+	\item Stuff2
+\end{itemize}
+\end{posterbox}
+
+\end{mfhposter}
+\end{document}

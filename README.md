@@ -33,3 +33,6 @@ pdflatex yourfile.tex
 cd path/to/this/repo
 ./get_3rd_party.sh
 ```
+
+## Examples
+A couple of examples are located in the [``examples``](examples) subfolder.
