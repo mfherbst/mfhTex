@@ -63,19 +63,19 @@
 % Define a conditional whether to place the logo on the current slide
 % See for details:
 % https://tex.stackexchange.com/questions/53781/how-can-i-include-the-logo-in-some-slides-and-remove-in-others-using-beamer%5C
-\newif\if@showlogo
+\newif\ifshowlogo
 
 % Set the default (depending on what user wants)
 \if@logoall
-	\@showlogotrue
+	\showlogotrue
 \else
-	\@showlogofalse
+	\showlogofalse
 \fi
 
 % Status in the talk
 \newcommand{\statusframe}[1][]{%
 	% Enable logo for the status frame in all cases
-	\@showlogotrue
+	\showlogotrue
 
 	% Show the status frame
 	\frame{%
@@ -89,9 +89,9 @@
 
 	% Set back to default
 	\if@logoall
-		\@showlogotrue
+		\showlogotrue
 	\else
-		\@showlogofalse
+		\showlogofalse
 	\fi
 }
 
@@ -99,7 +99,7 @@
 \newcommand{\tocframe}{\statusframe[full]}
 
 % inserts a black frame
-\newcommand{\blackframe}{ 
+\newcommand{\blackframe}{
 	\bgroup
 	\setbeamercolor{background canvas}{bg=black}
 	\setbeamertemplate{navigation symbols}{}
@@ -136,7 +136,7 @@
 
 	% Patch beamer logo template, such that
 	% the logo is only shown if showlogo is true
-	\addtobeamertemplate{logo}{\if@showlogo}{\fi}
+	\addtobeamertemplate{logo}{\ifshowlogo}{\fi}
 }
 
 \endinput
