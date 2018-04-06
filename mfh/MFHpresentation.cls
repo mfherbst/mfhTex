@@ -17,6 +17,12 @@
 	\PassOptionsToClass{\CurrentOption}{beamer}
 }
 
+\newif\if@statusslides\@statusslidestrue
+\DeclareOption{nostatus}{
+	% Do not show status slides
+	\@statusslidesfalse
+}
+
 \newif\if@logoall\@logoallfalse
 \DeclareOption{logoall}{
 	% Show the logo on all slides
@@ -127,7 +133,9 @@
 %%%%%%%%%%%%%%%%%%%%%
 
 % Automatic slides at each section
-\AtBeginSection[] {\statusframe}
+\AtBeginSection[] {
+	\if@statusslides\statusframe\fi
+}
 
 % At \begin{document}
 \AtBeginDocument{%
