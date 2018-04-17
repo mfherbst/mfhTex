@@ -9,6 +9,7 @@ addons:
       - texlive-latex-extra
       - texlive-pictures
       - texlive-science
+      - latex-beamer
       - pgf
       #
       - texlive-fonts-recommended
