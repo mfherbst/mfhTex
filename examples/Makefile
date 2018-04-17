@@ -3,7 +3,7 @@ LT = pdflatex -interaction batchmode
 BIBTEX = bibtex
 
 # All pdfs to generate
-PDFS=MFHposter.pdf
+PDFS=MFHposter.pdf MFHiwrPresentation.pdf
 
 .PHONY : all
 

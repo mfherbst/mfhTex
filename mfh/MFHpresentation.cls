@@ -47,6 +47,7 @@
 \usepackage{lmodern}	%Font
 \usepackage{colortbl}	%dynamic tables
 \usepackage{pgfpages}	%for notes on second screen
+\usepackage{ifthen}
 
 \usepackage{bibentry}   %for \footcite, \secondcite
 \usepackage{chngcntr}   %for \footcite, \secondcite
