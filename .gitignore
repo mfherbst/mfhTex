@@ -5,6 +5,8 @@
 *.out
 *.snm
 *.toc
+*.bbl
+*.blg
 /examples/*.pdf
 
 # backup files:
