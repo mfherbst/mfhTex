@@ -141,7 +141,6 @@
 % At \begin{document}
 \AtBeginDocument{%
 	\numberwithin{equation}{section}%
-	\rmfamily
 
 	% Patch beamer logo template, such that
 	% the logo is only shown if showlogo is true
