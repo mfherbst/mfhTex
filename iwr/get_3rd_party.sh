@@ -2,8 +2,7 @@
 # Get 3rd party logos and data
 
 # Base url to get the stuff from
-BASE="https://www.iwr.uni-heidelberg.de/fileadmin/IWR/Templates"
-
+BASE="https://www.iwr.uni-heidelberg.de/fileadmin/IWR"
 
 get() {
 	if which wget 2> /dev/null 1>&2; then
@@ -18,19 +17,17 @@ get() {
 
 if [ -L "logoIWR.pdf" ]; then
 	rm logoIWR.pdf
-	get "$BASE/logo_iwr.pdf" "logoIWR.pdf"
+	get "$BASE/Templates/logo_iwr.pdf" "logoIWR.pdf"
 fi
 
 if [ -L "logoUniHD.pdf" ]; then
 	rm "logoUniHD.pdf"
-	get "$BASE/logo_uni-hd_4c.eps" "/tmp/logoUniHD.eps"
+	get "$BASE/Templates/logo_uni-hd_4c.eps" "/tmp/logoUniHD.eps"
 	epstopdf "/tmp/logoUniHD.eps"
 	mv "/tmp/logoUniHD.pdf"  .
 fi
 
 if [ -L "logoHGS.pdf" ]; then
 	rm logoHGS.pdf
-	get "$BASE/logo_hgs-mathcomp.eps" "/tmp/logoHGS.eps"
-	epstopdf "/tmp/logoHGS.eps"
-	mv "/tmp/logoHGS.pdf" .
+	get "$BASE/Logos/logo_hgs-mathcomp-2018.pdf" "logoHGS.pdf"
 fi
