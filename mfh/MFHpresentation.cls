@@ -125,7 +125,7 @@
 %
 \counterwithin*{footnote}{page}
 % cite a bibtex entry in the footnote (first occurence)
-\newcommand\footcite[1]{\footnote{\bibentry{#1}}\label{\thepage:#1}}
+\newcommand\footcite[1]{\footnote{\bibentry{#1}\label{\thepage:#1}}}
 % cite a bibtex entry in the footnote (second occurence)
 \newcommand\secondcite[1]{\textsuperscript{\ref{\thepage:#1}}}
 
@@ -145,6 +145,17 @@
 	% Patch beamer logo template, such that
 	% the logo is only shown if showlogo is true
 	\addtobeamertemplate{logo}{\ifshowlogo}{\fi}
+
+	% Make sure that the references are all in black
+	% foreground colour only.
+	\setbeamercolor*{bibliography entry title}{fg=black}
+	\setbeamercolor*{bibliography entry author}{fg=black}
+	\setbeamercolor*{bibliography entry location}{fg=black}
+	\setbeamercolor*{bibliography entry note}{fg=black}
+	\setbeamertemplate{bibliography item}{}
+
+	% Reduce footnote size
+	\setbeamerfont{footnote}{size=\smaller}
 }
 
 \endinput
