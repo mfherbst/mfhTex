@@ -116,6 +116,14 @@
 	\egroup
 }
 
+\newenvironment{extraslides}{%
+	\newcounter{framenumberextra}
+	\setcounter{framenumberextra}{\value{framenumber}}
+}{%
+	\addtocounter{framenumberextra}{-\value{framenumber}}
+	\addtocounter{framenumber}{\value{framenumberextra}}
+}
+
 %%%%%%%%%%%%%%%%%%
 %--  Commands  --%
 %%%%%%%%%%%%%%%%%%
