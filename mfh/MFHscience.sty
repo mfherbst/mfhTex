@@ -218,8 +218,14 @@
 \newcommand*{\acomm}[2]{\ensuremath{ \left\{ {#1}, {#2} \right\} }}
 %
 % Creation and anihilation operators:
-\newcommand*{\creop}[1]{\ensuremath{\op{a}_{#1}^{\dagger}}}
-\newcommand*{\anop}[1]{\ensuremath{\op{a}_{#1}}}
+\newcommand*{\cop}[1]{\ensuremath{\op{c}_{#1}^{\dagger}}}
+\newcommand*{\aop}[1]{\ensuremath{\op{c}_{#1}}}
+
+% Creation and anihilation long names
+% NOTE: These are deprecated
+\newcommand*{\creop}{\cop}
+\newcommand*{\anop}{\aop}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % General chemistry
