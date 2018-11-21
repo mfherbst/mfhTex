@@ -119,9 +119,18 @@
 \newenvironment{extraslides}{%
 	\newcounter{framenumberextra}
 	\setcounter{framenumberextra}{\value{framenumber}}
+	\newif\if@statusslidesrestore
+	\@statusslidesrestorefalse
+	\if@statusslides
+		\@statusslidesrestoretrue
+	\fi
+	\@statusslidesfalse
 }{%
 	\addtocounter{framenumberextra}{-\value{framenumber}}
 	\addtocounter{framenumber}{\value{framenumberextra}}
+	\if@statusslidesrestore
+		\@statusslidestrue
+	\fi
 }
 
 %%%%%%%%%%%%%%%%%%
@@ -133,7 +142,7 @@
 %
 \counterwithin*{footnote}{page}
 % cite a bibtex entry in the footnote (first occurence)
-\newcommand\footcite[1]{\footnote{\bibentry{#1}\label{\thepage:#1}}}
+\newcommand\footcite[1]{\footnote{\smaller\bibentry{#1}\label{\thepage:#1}}}
 % cite a bibtex entry in the footnote (second occurence)
 \newcommand\secondcite[1]{\textsuperscript{\ref{\thepage:#1}}}
 
