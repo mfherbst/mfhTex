@@ -22,6 +22,12 @@
 	\@twocolumntrue
 }
 
+\newif\if@geometry\@geometrytrue
+\DeclareOption{nogeometry}{
+	% Disable page geometry setup
+	\@geometryfalse
+}
+
 \DeclareOption{10pt}{\PassOptionsToClass{\CurrentOption}{article}}
 \DeclareOption{12pt}{\PassOptionsToClass{\CurrentOption}{article}}
 
@@ -52,17 +58,19 @@
 \fi
 
 % Default geometry:
-\if@widepage
-	\if@twocolumn
-		\usepackage[left=1.3cm,right=1.3cm]{geometry}
+\if@geometry
+	\if@widepage
+		\if@twocolumn
+			\usepackage[left=1.3cm,right=1.3cm]{geometry}
+		\else
+			\usepackage{geometry}
+		\fi
 	\else
-		\usepackage{geometry}
-	\fi
-\else
-	\if@twocolumn
-		\usepackage[left=2cm,right=2cm]{geometry}
-	\else
-		\usepackage[left=3.8cm,right=3.8cm]{geometry}
+		\if@twocolumn
+			\usepackage[left=2cm,right=2cm]{geometry}
+		\else
+			\usepackage[left=3.8cm,right=3.8cm]{geometry}
+		\fi
 	\fi
 \fi
 
