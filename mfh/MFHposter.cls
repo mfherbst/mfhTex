@@ -107,7 +107,7 @@
 	headerborder=closed,
 	headershape=roundedright,
 	headershade=shadelr,
-	headerfont=\large\larger\bfseries\hspace{0.5ex},
+	headerfont=\large\larger[1.2]\bfseries\sffamily\hspace{0.5ex},
 	%
 	% Colours for the textboxes (themeable)
 	%
@@ -128,6 +128,20 @@
 	\definecolor{PosterHeaderFont}{rgb}{1.,1.,1.}
 }
 
+\newcommand{\mfhposter@theme@enpc}{
+	\definecolor{EnpcBlue}{rgb}{0.00000, 0.53333, 0.66274}
+	\definecolor{EnpcDarkBlue}{rgb}{0.0, 0.3, 1}
+	\definecolor{EnpcGrey}{rgb}{0.58431, 0.58431, 0.58431}
+	\colorlet{EnpcLightGrey}{EnpcGrey!25!white}
+	\definecolor{EnpcRed} {rgb}{0.90196, 0.20000, 0.07059}
+
+	\colorlet{PosterHeaderLhs}{EnpcLightGrey!85}
+	\colorlet{PosterHeaderRhs}{EnpcLightGrey!85}
+	\definecolor{PosterBoxBorder}{rgb}{0.066,  0.180,  0.285}
+	\definecolor{PosterAlertColor}{rgb}{.90196, .36470, .06666}
+	\colorlet{PosterHeaderFont}{EnpcDarkBlue}
+}
+
 %%%%%%%%%%%%%%%%%%%%%
 %--  Other latex  --%
 %%%%%%%%%%%%%%%%%%%%%
@@ -137,8 +151,11 @@
 	\ifthenelse{\equal{#1}{iwrblue}}{%
 		\mfhposter@theme@iwrblue%
 	}{%
+	\ifthenelse{\equal{#1}{enpc}}{%
+		\mfhposter@theme@enpc%
+	}{%
 		\error{MFHposter: Theme #1 unknown.}%
-	}%
+	}}%
 }
 
 % Remove the "Bibliograpy" or "References" header for the thebibliograpy

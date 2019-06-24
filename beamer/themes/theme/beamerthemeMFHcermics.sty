@@ -1,0 +1,23 @@
+\beamer@compresstrue
+
+\mode<presentation>
+
+\usepackage{CERMICScolours} % defines the colours of the color theme
+\useinnertheme{rounded}
+\useoutertheme{miniframes}
+\usecolortheme{MFHcermics}					% tha adopted IWR color theme
+
+\setbeamercovered{transparent}          	% halbtransparente Overlays
+\setbeamertemplate{footline}[frame number]      % Seitenzahl einfügen
+\usepackage{lmodern}    			% Font
+
+\beamertemplatenavigationsymbolsempty		% remove navigation symbols
+
+%include cermics logo:
+\pgfdeclareimage[height=0.7cm]{EnpcLogo}{cermics/logoENPC}
+\pgfdeclareimage[height=0.7cm]{InriaLogo}{cermics/logoInria}
+\pgfdeclareimage[height=0.7cm]{MatherialsLogo}{cermics/logoMatherials}
+\logo{\pgfuseimage{MatherialsLogo}\hspace{0.2cm}\pgfuseimage{InriaLogo}%
+\hspace{0.2cm}\pgfuseimage{EnpcLogo}\hspace{0.2cm}\:}
+
+\mode<all>

@@ -1,0 +1,35 @@
+\mode<presentation>
+
+%principle colors:
+\setbeamercolor{structure}{fg=CermicsRed}
+\setbeamercolor{alerted text}{fg=CermicsRed}
+\setbeamercolor{example text}{fg=CermicsGreen}
+\setbeamercolor{palette primary}{fg=CermicsRed,bg=CermicsVeryLightGray!65!white}
+
+% remaining colors (all depend on above):
+\setbeamercolor{palette secondary}{use=structure,fg=structure.bg,bg=structure.fg}
+\setbeamercolor{palette tertiary}{use={palette primary},fg=palette primary.fg!85!black,bg=palette primary.bg!60!white}
+\setbeamercolor{palette quaternary}{use={palette primary},fg=palette primary.fg,bg=palette primary.bg!50!white}
+
+\setbeamercolor{block body alerted}{use={palette primary},bg=palette primary.bg!30!white}
+\setbeamercolor{block body}{use={palette primary},bg=palette primary.bg!30!white}
+\setbeamercolor{block body example}{use={palette primary},bg=palette primary.bg!30!white}
+\setbeamercolor{block title alerted}{use={palette primary,alerted text},fg=alerted text.fg,bg=palette primary.bg!75!white}
+\setbeamercolor{block title}{use={normal text,palette primary},fg=CermicsBlue, bg=palette primary.bg!75!white}
+\setbeamercolor{block title example}{use={palette primary,example text},fg=example text.fg,bg=palette primary.bg!75!white}
+
+\setbeamercolor{page number in head/foot}{use=structure,fg=structure.fg}
+\setbeamercolor*{titlelike}{parent=palette primary}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+%Note: these colors are not tested:
+\setbeamercolor{sidebar}{use=structure,bg=structure.fg!20!white}
+
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+
+\mode<all>
