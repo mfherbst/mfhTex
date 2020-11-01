@@ -63,7 +63,7 @@
 		\if@twocolumn
 			\usepackage[left=1.3cm,right=1.3cm]{geometry}
 		\else
-			\usepackage{geometry}
+			\usepackage[left=3.1cm,right=3.1cm]{geometry}
 		\fi
 	\else
 		\if@twocolumn

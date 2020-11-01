@@ -133,6 +133,14 @@
 	\fi
 }
 
+\newcommand{\widenframe}[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
 %%%%%%%%%%%%%%%%%%
 %--  Commands  --%
 %%%%%%%%%%%%%%%%%%
