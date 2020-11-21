@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  test:
+    name: Unit tests
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Texlive
+        run: >
+          sudo apt-get install
+          texlive-latex-recommended
+          texlive-latex-extra
+          texlive-pictures
+          texlive-science
+          texlive-fonts-recommended
+          texlive-fonts-extra
+          lmodern
+      - name: Compilation environment setup
+        run: |
+          mkdir -p $HOME/texmf/tex
+          ln -s ${{ env.GITHUB_WORKSPACE }} $HOME/texmf/tex/latex
+      - name: Compile examples
+        run: |
+          cd ${{ env.GITHUB_WORKSPACE }}/examples
+          make
