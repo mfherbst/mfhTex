@@ -23,8 +23,8 @@ jobs:
       - name: Compilation environment setup
         run: |
           mkdir -p $HOME/texmf/tex
-          ln -s ${{ env.GITHUB_WORKSPACE }} $HOME/texmf/tex/latex
+          ln -s $PWD $HOME/texmf/tex/latex
       - name: Compile examples
         run: |
-          cd ${{ env.GITHUB_WORKSPACE }}/examples
+          cd examples
           make
